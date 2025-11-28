@@ -246,8 +246,9 @@ export const fheClient = {
     walletClient: WalletClient,
     eip712Data: EIP712
   ): Promise<string> {
-    const signature = await walletClient.signTypedData({
-      domain: eip712Data.domain as any,
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const signature = await (walletClient.signTypedData as any)({
+      domain: eip712Data.domain,
       types: eip712Data.types,
       primaryType: eip712Data.primaryType,
       message: eip712Data.message,
