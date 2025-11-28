@@ -45,9 +45,11 @@ type HandleContractPair = {
 };
 
 // Singleton instance
-let instance: FhevmInstance | null = null;
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+let instance: any = null;
 let initialized = false;
-let initPromise: Promise<FhevmInstance> | null = null;
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+let initPromise: Promise<any> | null = null;
 
 export interface FheClientConfig {
   chainId?: number;
@@ -67,7 +69,8 @@ export const fheClient = {
   /**
    * Initialize the FHE SDK (client-side only)
    */
-  async init(config?: FheClientConfig): Promise<FhevmInstance> {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  async init(config?: FheClientConfig): Promise<any> {
     // Return existing instance if already initialized
     if (instance && initialized) {
       return instance;
