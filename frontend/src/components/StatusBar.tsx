@@ -6,8 +6,8 @@ import { fheClient } from "@/lib/fheClient";
 import { CONTRACT_ADDRESS } from "@/lib/wagmi";
 import { useEffect, useState } from "react";
 
-// GitHub repo URL - will be updated later
-const GITHUB_URL = "https://github.com";
+// GitHub repo URL
+const GITHUB_URL = "https://github.com/jennahaaa/VendorElect";
 
 export function StatusBar() {
   const [mounted, setMounted] = useState(false);

@@ -100,7 +100,7 @@ VendorElect/
 
 ```bash
 # Clone the repository
-git clone https://github.com/YOUR_USERNAME/VendorElect.git
+git clone https://github.com/jennahaaa/VendorElect.git
 cd VendorElect
 
 # Install contract dependencies
