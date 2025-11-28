@@ -174,7 +174,7 @@ export const fheClient = {
     // Convert Uint8Array to hex strings
     // Handles are already bytes32, just convert to hex
     return {
-      handles: encrypted.handles.map((h) => this.uint8ArrayToHex(h)),
+      handles: encrypted.handles.map((h: Uint8Array) => this.uint8ArrayToHex(h)),
       inputProof: this.uint8ArrayToHex(encrypted.inputProof),
     };
   },
