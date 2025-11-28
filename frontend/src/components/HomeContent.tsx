@@ -177,7 +177,7 @@ export function HomeContent() {
 
       // Convert handles to hex strings for SDK
       const gradeHandleHex = `0x${BigInt(gradeHandle).toString(16).padStart(64, '0')}` as `0x${string}`;
-      const itemHandlesHex = (itemHandles as bigint[]).map(
+      const itemHandlesHex = ([...itemHandles] as bigint[]).map(
         h => `0x${BigInt(h).toString(16).padStart(64, '0')}` as `0x${string}`
       );
 
