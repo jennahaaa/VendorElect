@@ -19,6 +19,9 @@ const nextConfig: NextConfig = {
       },
     ];
   },
+  // Turbopack config (Next.js 16 default)
+  turbopack: {},
+  // Webpack fallback for Node.js modules
   webpack: (config, { isServer }) => {
     if (!isServer) {
       config.resolve.fallback = {
