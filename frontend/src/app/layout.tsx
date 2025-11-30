@@ -37,7 +37,7 @@ export default function RootLayout({
       <body className="antialiased">
         <Web3Provider>
           <NavBar />
-          {children}
+        {children}
         </Web3Provider>
       </body>
     </html>

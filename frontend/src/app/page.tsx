@@ -16,7 +16,7 @@ const HomeContent = dynamic(
       </main>
     ),
   }
-);
+  );
 
 export default function Home() {
   return <HomeContent />;
