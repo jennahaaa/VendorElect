@@ -9,7 +9,7 @@ export const projectId = "42a5c65f3530bd77a4076f1296beb2bb";
 export const metadata = {
   name: "VendorElect",
   description: "FHE-powered Vendor Potential Rating System",
-  url: "http://localhost:3000",
+  url: typeof window !== "undefined" ? window.location.origin : "https://vendor-elect.vercel.app",
   icons: ["https://avatars.githubusercontent.com/u/37784886"],
 };
 
