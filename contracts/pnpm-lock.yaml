@@ -11,6 +11,9 @@ importers:
       '@fhevm/solidity':
         specifier: ^0.9.1
         version: 0.9.1
+      encrypted-types:
+        specifier: ^0.0.4
+        version: 0.0.4
     devDependencies:
       '@nomicfoundation/hardhat-toolbox':
         specifier: ^6.1.0

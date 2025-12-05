@@ -167,10 +167,6 @@ export const fheClient = {
 
     const encrypted = await input.encrypt();
 
-    console.log("Encrypted handles count:", encrypted.handles.length);
-    console.log("First handle length:", encrypted.handles[0]?.length);
-    console.log("Input proof length:", encrypted.inputProof.length);
-
     // Convert Uint8Array to hex strings
     // Handles are already bytes32, just convert to hex
     return {

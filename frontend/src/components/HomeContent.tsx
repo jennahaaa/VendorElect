@@ -104,7 +104,6 @@ export function HomeContent() {
       await fheClient.init({ chainId: 11155111 });
       
       const values = INDICATORS.map((ind) => selections[ind.id] ?? 0);
-      console.log("Values to encrypt:", values);
       
       setStatus("Encrypting data with FHE...");
       const { handles, inputProof } = await fheClient.encryptValues(
@@ -112,9 +111,6 @@ export function HomeContent() {
         address,
         values
       );
-
-      console.log("Encrypted handles:", handles);
-      console.log("Input proof:", inputProof);
 
       setStatus("Submitting encrypted data to blockchain...");
       
@@ -164,9 +160,6 @@ export function HomeContent() {
       setStatus("Fetching encrypted handles...");
       const { data: gradeHandle } = await refetchOverallGrade();
       const { data: itemHandles } = await refetchItemGrades();
-      
-      console.log("Overall grade handle:", gradeHandle);
-      console.log("Item grade handles:", itemHandles);
 
       if (!gradeHandle || !itemHandles) {
         setStatus("Error: Failed to fetch encrypted data");
@@ -181,16 +174,12 @@ export function HomeContent() {
         h => `0x${BigInt(h).toString(16).padStart(64, '0')}` as `0x${string}`
       );
 
-      console.log("Grade handle hex:", gradeHandleHex);
-      console.log("Item handles hex:", itemHandlesHex);
-
       // Generate keypair for decryption
       setStatus("Generating decryption keypair...");
       const keypair = fheClient.generateKeypair();
       if (!keypair) {
         throw new Error("Failed to generate keypair");
       }
-      console.log("Generated keypair, public key length:", keypair.publicKey.length);
 
       // Create EIP-712 signature data
       setStatus("Preparing decryption authorization...");
@@ -206,12 +195,10 @@ export function HomeContent() {
       if (!eip712Data) {
         throw new Error("Failed to create EIP-712 data");
       }
-      console.log("EIP-712 data created:", eip712Data);
 
       // Request user signature
       setStatus("Please sign to authorize decryption...");
       const signature = await fheClient.signEIP712(walletClient, eip712Data);
-      console.log("User signature obtained:", signature.slice(0, 20) + "...");
 
       // Prepare handles for userDecrypt
       setStatus("Decrypting with FHE (this may take a moment)...");
@@ -231,8 +218,6 @@ export function HomeContent() {
         startTimestamp,
         durationDays
       );
-      
-      console.log("Decrypted values:", decrypted);
 
       // Parse decrypted results
       const overallGrade = Number(decrypted[gradeHandleHex] ?? 2);
@@ -297,8 +282,6 @@ export function HomeContent() {
       const isUserRejection = errorMsg.toLowerCase().includes("user rejected") || 
                               errorMsg.toLowerCase().includes("user denied") ||
                               errorMsg.toLowerCase().includes("rejected");
-      
-      console.log("Transaction error:", errorMsg);
       
       // Reset to initial state
       setFlowStep("select");

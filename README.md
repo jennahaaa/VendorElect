@@ -122,16 +122,41 @@ cd contracts
 pnpm test
 ```
 
+**Test Results:**
+
+```
+  VendorElect
+    Deployment
+      ✔ Should deploy successfully
+      ✔ Should have correct initial state
+      ✔ Should return 0 for rating count of new user
+      ✔ Should return 0 for rating timestamp of new user
+    View Functions
+      ✔ Should revert getOverallGrade when no rating submitted
+      ✔ Should return tuple for getItemGrades (uninitialized)
+    Access Control
+      ✔ Should allow any address to call view functions
+    FHE Operations (Integration Tests - Sepolia)
+      - submitAndCalculate - requires FHEVM network
+      - Grade calculation logic - requires FHEVM network
+
+  VendorElect - Rating Rules Documentation
+    ✔ Documents indicator encoding
+    ✔ Documents grading rules
+    ✔ Documents FHE security model
+
+  10 passing (87ms)
+  2 pending
+```
+
 **Test Coverage:**
 
-| Category | Tests | Description |
-|----------|-------|-------------|
-| Deployment | 4 | Contract deployment & initial state |
-| View Functions | 2 | `getOverallGrade`, `getItemGrades` |
-| Access Control | 1 | Multi-user isolation |
-| Documentation | 3 | Rating rules & FHE security model |
-
-**Note**: FHE operations (encryption/decryption) require the live FHEVM network (Sepolia) and cannot be simulated locally. These are tested through the frontend integration on testnet.
+| Category | Tests | Status | Description |
+|----------|-------|--------|-------------|
+| Deployment | 4 | ✅ Pass | Contract deployment & initial state verification |
+| View Functions | 2 | ✅ Pass | `getOverallGrade`, `getItemGrades` return values |
+| Access Control | 1 | ✅ Pass | Multi-user data isolation |
+| Documentation | 3 | ✅ Pass | Rating rules & FHE security model |
 
 ## Usage
 

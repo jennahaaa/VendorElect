@@ -17,6 +17,7 @@
     "typescript": "^5.9.3"
   },
   "dependencies": {
-    "@fhevm/solidity": "^0.9.1"
+    "@fhevm/solidity": "^0.9.1",
+    "encrypted-types": "^0.0.4"
   }
 }
